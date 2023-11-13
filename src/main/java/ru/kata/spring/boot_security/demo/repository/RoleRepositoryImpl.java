@@ -12,7 +12,11 @@ import java.util.List;
 public class RoleRepositoryImpl implements RoleRepository {
 
     @PersistenceContext
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
+
+    public RoleRepositoryImpl(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
     @Override
     public List<Role> findAll() {

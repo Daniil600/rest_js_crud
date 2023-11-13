@@ -1,22 +1,21 @@
 package ru.kata.spring.boot_security.demo.configs;
 
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.kata.spring.boot_security.demo.model.Role;
 import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.service.RoleService;
 import ru.kata.spring.boot_security.demo.service.UserService;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
-import java.util.List;
+
 import java.util.Set;
 
 @Component
 public class AutoRegisterUser {
     private final UserService userService;
     private final RoleService roleService;
-    @Autowired
+
     public AutoRegisterUser(UserService userService, RoleService roleService) {
         this.userService = userService;
         this.roleService = roleService;

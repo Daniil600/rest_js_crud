@@ -1,6 +1,6 @@
 const urlUsers = 'http://localhost:8080/api/admin';
-const urlRoles = 'http://localhost:8080/api/roles';
-const urlLogin = 'http://localhost:8080/api/loginInfo'
+const urlRoles = 'http://localhost:8080/api/admin/roles';
+const urlLogin = 'http://localhost:8080/api/admin/loginInfo'
 
 //table with users
 const tableUsers = document.querySelector('tbody');

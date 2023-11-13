@@ -48,6 +48,7 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
+    @Transactional
     public void deleteById(Long id) {
         User user = entityManager.find(User.class, id);
         if (user != null) {

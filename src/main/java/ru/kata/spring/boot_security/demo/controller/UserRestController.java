@@ -27,4 +27,8 @@ public class UserRestController {
     public ResponseEntity<User> getUserById(Principal principal) {
         return new ResponseEntity<>(userService.findByUsername(principal.getName()), HttpStatus.OK);
     }
+    @GetMapping("/loginInfo")
+    public ResponseEntity<User> getCurrentUser(Principal principal) {
+        return new ResponseEntity<>(userService.findByUsername(principal.getName()), HttpStatus.OK);
+    }
 }

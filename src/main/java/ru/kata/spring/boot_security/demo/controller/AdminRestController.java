@@ -28,28 +28,23 @@ public class AdminRestController {
         this.roleService = roleService;
     }
 
-    @GetMapping("/loginInfo")
-    public ResponseEntity<User> getCurrentUser(Principal principal) {
-        return new ResponseEntity<>(userService.findByUsername(principal.getName()), HttpStatus.OK);
-    }
-
     @GetMapping("/roles")
     public ResponseEntity<Iterable<Role>> getAllRoles() {
         return new ResponseEntity<>(roleService.getAllRoles(), HttpStatus.OK);
     }
 
-    @GetMapping("")
+    @GetMapping
     public ResponseEntity<List<User>> getAllUsers() {
         return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
     }
 
-    @PostMapping("")
+    @PostMapping
     public ResponseEntity<User> addNewUser(@RequestBody User user) {
         userService.saveUser(user);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PutMapping("")
+    @PutMapping
     public ResponseEntity<User> update(@RequestBody User user) {
         userService.updateUser(user);
         return new ResponseEntity<>(user, HttpStatus.OK);

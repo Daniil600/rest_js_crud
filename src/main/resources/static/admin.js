@@ -1,6 +1,6 @@
 const urlUsers = 'http://localhost:8080/api/admin';
 const urlRoles = 'http://localhost:8080/api/admin/roles';
-const urlLogin = 'http://localhost:8080/api/admin/loginInfo'
+const urlLogin = 'http://localhost:8080/api/loginInfo'
 
 //table with users
 const tableUsers = document.querySelector('tbody');
@@ -116,11 +116,11 @@ const reloadUsersTable = () => {
 
 //--------------------------------------------NEW_USER----------------------------------------------
 // POST: add new user
-getAllRoles(roles)
+getAllRoles(rolesNew)
 addNewUser.addEventListener('submit', (e) => {
         e.preventDefault()
-        let options = document.querySelector('#roles')
-        let setRoles = roleArray(options)
+        // let options = document.querySelector('#roles')
+        let setRoles = roleArray(rolesNew)
         fetch(urlUsers, {
             method: 'POST',
             headers: {
@@ -139,12 +139,6 @@ addNewUser.addEventListener('submit', (e) => {
             .catch(error => console.log(error))
             .then(reloadUsersTable)
         newUsersTable.show()
-        nameNew.value = ''
-        emailNew.value = ''
-        ageNew.value = ''
-        usernameNew.value = ''
-        passwordNew.value = ''
-        rolesNew.value = ''
     }
 )
 //--------------------------------------------NEW_USER----------------------------------------------

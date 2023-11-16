@@ -38,7 +38,7 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     @Transactional
     public void save(User user) {
-        entityManager.persist(user);
+        entityManager.merge(user);
     }
 
     @Override
